@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do application</title>
+</head>
+<STYle>
+
+body{
+    background-color: rgb(143, 199, 199);
+}
+
+
+.Content{
+    justify-content: center;
+    display: flex;
+
+}
+
+button{
+    border-radius: 5px;
+    color: rgb(11, 11, 11);
+    background-color: rgb(50, 205, 66);
+    /* margin: 8px; */
+}
+
+input{
+ border-radius: 5px;
+ width: 150px;
+ height: 20px;
+ background-color: rgb(122, 238, 149);
+
+
+}
+
+</STYle>
+
+
+<body>
+    <H1 style="justify-content: center; display: flex;">TO DO LIST </H1>
+    
+<div class="Content">
+
+
+<input type="text" placeholder="wassup">
+<button onclick="addtodo()">Add</button>
+
+</div>
+</body>
+
+
+<script>
+
+
+    let ctr =1;
+
+    function deleteTodo(index){
+      const element = document.getElementById("todo-"+index);
+      element.parentNode.removeChild(element);  
+    }
+
+
+    function addtodo(){
+        const inputEl = document.querySelector("input");
+        const value = inputEl.value; 
+
+
+        const newDivEl = document.createElement("div");
+        newDivEl.setAttribute("id","todo-"+ ctr);
+
+
+        newDivEl.innerHTML= "<div>" + value +'</div><button onclick="deleteTodo('+ctr+')">Delete</button>';
+
+
+        document.querySelector("body").appendChild(newDivEl);
+        ctr = ctr+1;
+
+
+    }
+</script>
+
+</html>

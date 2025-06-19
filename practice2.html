@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <input type="text">
+    <button onclick="addtodo()">Add Todo</button>
+    
+</body>
+
+<script>
+    function addtodo(){
+        todos.push({
+            title: document.querySelector("input").value
+        })
+        render();
+    }
+
+    function deleteTodo(){
+        render();
+    }
+
+    function render(){
+
+    }
+</script>
+
+</html>
