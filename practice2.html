@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-
 <body>
     <input type="text">
     <button onclick="addtodo()">Add Todo</button>
+    <button onclick="Deletefirst()">Delete First Element</button>
+    <button onclick="Deletelast()">Delete last Element</button>
+    <div id="todos"></div>
     
 </body>
 
 <script>
+    let todos =[];
     function addtodo(){
         todos.push({
             title: document.querySelector("input").value
@@ -21,13 +16,35 @@
         render();
     }
 
-    function deleteTodo(){
-        render();
+     function Deletefirst(){
+        todos.splice(0,1)
+        render()
     }
 
+     function Deletelast(){
+        todos.splice(todos.length-1,1)
+        render()
+    }
+
+
+    function createTodoEle(todo){
+        const div = document.createElement("div");
+        const span = document.createElement("span");
+        const button = document.createElement("button")
+
+        button.innerHTML="Delete"
+        span.innerHTML=todo.title;
+        div.append(span)
+        div.append(button)
+        return div
+    }
+      
     function render(){
+        document.querySelector('#todos').innerHTML="";
+        for(let i=0; i<todos.length;i++){
+            const element= createTodoEle(todos[i]);
+            document.querySelector('#todos').appendChild(element)
+        }
 
     }
 </script>
-
-</html>
